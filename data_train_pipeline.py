@@ -205,18 +205,18 @@ torch.save(model, f"models/model_swin_base_patch4_window7_224_affordance__{num_e
 
 import pickle
 
-with open(f'../../Desktop/data/test_dataset_swin_base_patch4_window7_224_torchhub_epoch{num_epochs}.pkl', 'wb') as f:
+with open(f'data/test_dataset_swin_base_patch4_window7_224_epoch{num_epochs}.pkl', 'wb') as f:
     pickle.dump(test_dataset, f)
 
-with open(f'../../Desktop/data/train_dataset_swin_base_patch4_window7_224_torchub_epoch{num_epochs}.pkl', 'wb') as f:
+with open(f'data/train_dataset_swin_base_patch4_window7_224_torchub_epoch{num_epochs}.pkl', 'wb') as f:
     pickle.dump(train_dataset, f)
 
-with open(f'../../Desktop/data/val_dataset_swin_base_patch4_window7_224_torchhub_epoch{num_epochs}.pkl', 'wb') as f:
+with open(f'data/val_dataset_swin_base_patch4_window7_224_torchhub_epoch{num_epochs}.pkl', 'wb') as f:
     pickle.dump(val_dataset, f)
 
 # print(model)
 
-with open(f"../../Desktop/data/all_possible_labels_list_swin_base_patch4_window7_224_epoch{num_epochs}.pkl", 'wb') as f:
+with open(f"data/all_possible_labels_list_swin_base_patch4_window7_224_epoch{num_epochs}.pkl", 'wb') as f:
     pickle.dump(all_possible_labels_list, f)
 
 import shutil
