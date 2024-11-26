@@ -3,6 +3,7 @@ import torch.nn.functional as F
 import json
 import numpy as np
 import cv2
+import torch
 def reshape_transform(tensor, height=14, width=14):
     result = tensor[:, 1:, :].reshape(tensor.size(0),
                                       height, width, tensor.size(2))
@@ -55,3 +56,22 @@ def compute_iou(heatmap, mask):
     if union == 0:
         return 0  # Prevent division by zero
     return intersection / union
+
+
+def predict_single_image_tensor(input_tensor, model, label_list, threshold=0.5, device="cuda"):
+    # Predict affordances for a single image.
+
+    # Pass image through the model
+    model.eval()
+    with torch.no_grad():
+        logits = model(input_tensor)
+
+    # Convert logits to probabilities
+    probs = F.sigmoid(logits).squeeze().cpu().numpy()
+
+    predicted_labels = (probs > threshold)
+
+    # Convert predictions to label strings
+    predictions = {label_list[i]: probs[i] for i in range(len(label_list)) if predicted_labels[i]}
+
+    return predictions
