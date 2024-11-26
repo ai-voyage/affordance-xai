@@ -17,13 +17,16 @@ We evaluate our proposed approach on a comprehensive benchmark dataset using an 
 ## Installation
 To set up the repository on your local machine:
 1. Clone the repository:
+```
    git clone https://github.com/ai-voyage/affordance-xai.git
    cd affordance-xai
-
-2. Create a virtual environment and install dependencies
+```
+3. Create a virtual environment and install dependencies
+```
   conda create -n your_env_name python=3.9
   conda activate your_env_name
   pip install -r requirements.txt
+```
 
 
 ## Usage
@@ -32,16 +35,18 @@ To set up the repository on your local machine:
   - Extract "Json Files.zip" and "RGB images.zip" into data folder. We have only provided a small sample of the dataset in this repo.
   - Ensure the dataset is available at the correct paths.
 2. Training:
-Run the training script:
-```Shell
+- Run the training script:
+```bash
 python data_train_pipeline.py
-```Shell
+ ```
+
 3. CAM visualization
 Generate the CAM based affordance heatmaps:
-```Shell
+```bash
 python swin_gradcam_generator.py
-```Shell
+```
 4. Generate Textual Explanations of Affordances:
-```Shell
+```bash
 python GPT component/gpt_affordance.py
-```Shell
+```
+
