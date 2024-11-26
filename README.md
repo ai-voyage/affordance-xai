@@ -31,17 +31,17 @@ To set up the repository on your local machine:
 
 ## Usage
 1. Data Preparation:
-  - Download the dataset available at:  [A large scale multi-view RGBD visual affordance learning dataset](https://sites.google.com/view/afaqshah/datasets?authuser=0)
-  - Extract "Json Files.zip" and "RGB images.zip" into data folder. We have only provided a small sample of the dataset in this repo.
-  - Ensure the dataset is available at the correct paths.
+   - Download the dataset available at:  [A large scale multi-view RGBD visual affordance learning dataset](https://sites.google.com/view/afaqshah/datasets?authuser=0)
+   - Extract "Json Files.zip" and "RGB images.zip" into data folder. We have only provided a small sample of the dataset in this repo.
+   - Ensure the dataset is available at the correct paths.
 2. Training:
-- Run the training script:
+   - Run the training script:
 ```bash
 python data_train_pipeline.py
  ```
 
 3. CAM visualization
-- Generate the CAM based affordance heatmaps:
+   - Generate the CAM based affordance heatmaps:
 ```bash
 python swin_gradcam_generator.py
 ```
