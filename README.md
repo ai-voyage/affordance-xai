@@ -41,11 +41,13 @@ python data_train_pipeline.py
  ```
 
 3. CAM visualization
-Generate the CAM based affordance heatmaps:
+- Generate the CAM based affordance heatmaps:
 ```bash
 python swin_gradcam_generator.py
 ```
 4. Generate Textual Explanations of Affordances:
+   - Obtain an OpenAI api key.
+   - Past it in GPT component/gpt_affordance.py. Run the textual affordance explainability generator:
 ```bash
 python GPT component/gpt_affordance.py
 ```
