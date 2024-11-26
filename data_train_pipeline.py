@@ -200,23 +200,23 @@ print(predictions)
 print("saving model and other data")
 
 torch.save(model.state_dict(),
-           f"models/model_swin_base_patch4_window7_224_affordance_state_dict_epoch_{num_epochs}.pth")
-torch.save(model, f"models/model_swin_base_patch4_window7_224_affordance__{num_epochs}.pth")
+           f"models/model_{model_name}_affordance_state_dict_epoch_{num_epochs}.pth")
+torch.save(model, f"models/model_{model_name}_affordance_{num_epochs}.pth")
 
 import pickle
 
-with open(f'data/test_dataset_swin_base_patch4_window7_224_epoch{num_epochs}.pkl', 'wb') as f:
+with open(f'data/test_dataset_{model_name}_epoch{num_epochs}.pkl', 'wb') as f:
     pickle.dump(test_dataset, f)
 
-with open(f'data/train_dataset_swin_base_patch4_window7_224_torchub_epoch{num_epochs}.pkl', 'wb') as f:
+with open(f'data/train_dataset_{model_name}_epoch{num_epochs}.pkl', 'wb') as f:
     pickle.dump(train_dataset, f)
 
-with open(f'data/val_dataset_swin_base_patch4_window7_224_torchhub_epoch{num_epochs}.pkl', 'wb') as f:
+with open(f'data/val_dataset_{model_name}_epoch{num_epochs}.pkl', 'wb') as f:
     pickle.dump(val_dataset, f)
 
 # print(model)
 
-with open(f"data/all_possible_labels_list_swin_base_patch4_window7_224_epoch{num_epochs}.pkl", 'wb') as f:
+with open(f"data/all_possible_labels_list_{model_name}_epoch{num_epochs}.pkl", 'wb') as f:
     pickle.dump(all_possible_labels_list, f)
 
 import shutil
@@ -224,7 +224,7 @@ import os
 
 source_dir = image_data_dir
 print(source_dir)
-dest_dir = "data/" + f"Test Images-swin_base_patch4_window7_224'_{num_epochs}'"
+dest_dir = "data/" + f"Test Images-{model_name}_{num_epochs}"
 
 for test_image_index in sorted(test_dataset.indices):
 

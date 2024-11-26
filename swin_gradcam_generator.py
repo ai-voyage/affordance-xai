@@ -17,6 +17,8 @@ from pytorch_grad_cam.utils.image import show_cam_on_image, \
     preprocess_image
 from pytorch_grad_cam.ablation_layer import AblationLayerVit
 from pytorch_grad_cam.utils.model_targets import ClassifierOutputTarget, ClassifierOutputSoftmaxTarget
+
+from data_train_pipeline import num_epochs
 from helper_functions import heatmap_generator as h
 import gzip
 
@@ -33,7 +35,10 @@ methods = {"gradcam": GradCAM,
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-with open('data/all_possible_labels_list_swin_base_patch4_window7_224_epoch10.pkl', 'rb') as f:
+model_name = "swin_base_patch4_window7_224"
+epochs = "10"
+
+with open(f'data/all_possible_labels_list_{model_name}_epoch{epochs}.pkl', 'rb') as f:
     label_list_saved = pickle.load(f)
 
 num_labels = len(label_list_saved)
@@ -43,7 +48,7 @@ print(label_list_saved)
 # Load model parameters
 
 
-model = torch.load('models/model_swin_base_patch4_window7_224_affordance_multi_label_epoch_10.pth')
+model = torch.load(f'models/model_{model_name}_affordance_{num_epochs}.pth')
 model = model.to(device)  # Ensure you load to the correct device
 
 model.eval()
@@ -59,7 +64,7 @@ target_category = None  # Let Grad-CAM decide the most influential class
 
 list_of_method = ['eigencam', 'scorecam']
 
-root_directory = "data/Test Images-swin_base_patch4_window7_224-tiny_10"
+root_directory = f"data/Test Images-{model_name}-tiny_{epochs}"
 json_directory = "data/RGBD_affordance_dataset/JSON_format"
 
 
@@ -87,7 +92,7 @@ for fold in os.listdir(json_directory):
                 json_file_path = os.path.join(json_path, json_filename)
                 for method in list_of_method:
                     iou_scores = []
-                    destination_root = f'images/vit_results/Model_swin_base_patch4_window7_224_epoch10_testDataset_iouscore_/{method}_2Labels_lastLayer_smooth'
+                    destination_root = f'images/vit_results/Model_{model_name}_epoch{epochs}_testDataset_iouscore_/{method}_2Labels_lastLayer_smooth'
                     cam_file_name = test_folder_list[image_name_index].split('.')[0] + f'_{method}_' + '.' + \
                                     test_folder_list[image_name_index].split('.')[1]
                     destination_image_path = os.path.join(destination_root, cam_file_name)
