@@ -3,12 +3,12 @@
 The official repository for "Towards Explainability of Affordance Learning in Robot Vision", published at DICTA2024, Perth
 
 
-##Introduction
+## Introduction
 This repository supports the paper **"Towards Explainability of Affordance Learning in Robot Vision"**, presented at **DICTA, 2024**. The paper introduces a novel post-hoc multimodal explainability framework that capitalizes on the emerging synergy between visual and language models. Our proposed multimodal system provides human-like explanations to answer "what" the autonomous machines look at and "what" they think of the functional affordances offered by the objects they are looking at. This repository includes a sample of the dataset, code, and models used in our experiments. The contributions of this paper are summarised below: 
 
-- We propose a post-hoc multimodal deep learning-based affordance recognition framework for the interpretability of intelligent system predictions.
+- We propose a post-hoc multimodal deep learning-based and multi-label object affordance recognition framework for the interpretability of intelligent system predictions.
 - In addition to leveraging the post-hoc visual attribution heatmaps as a visual modality, the state-of-the-art LLM models are leveraged as a language modality that provides an intuitive description of the visual explanations.
-We evaluate our proposed approach on a comprehensive benchmark dataset using an alignment XAI evaluation metric for the affordance learning task against the ground truth. Our experimental results demonstrate the proposed framework's superior performance.
+- We evaluate our proposed approach on a comprehensive benchmark dataset using an alignment XAI evaluation metric for the affordance learning task against the ground truth. Our experimental results demonstrate the proposed framework's superior performance.
 - The proposed framework can be applied to any autonomous systems powered by DNN architectures, including Vision Transformers (ViTs) and Convolutional Neural Networks (CNNs).
 
 ## Release
