@@ -9,8 +9,8 @@ from helper_functions.data_processor import predict_single_image, parse_json, Mu
 
 torch.manual_seed(0)
 
-data_dir = "../../Desktop/data/RGBD_affordance_dataset/JSON_format"
-image_data_dir = '../../Desktop/data/RGBD_affordance_dataset/RGB_images'
+data_dir = "data/RGBD_affordance_dataset/JSON_format"
+image_data_dir = 'data/RGBD_affordance_dataset/RGB_images'
 
 # Create an empty dictionary to store image-label mappings for all images
 image_label_mapping = {}
